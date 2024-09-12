@@ -1,12 +1,13 @@
-// declaration des variables
-var favs = Array.from(document.querySelectorAll(".fa-heart"));
-var deletBtns = Array.from(document.querySelectorAll(".fa-trash-alt"));
-var cards = Array.from(document.querySelectorAll(".card"));
+// Declaration
+
 var plusBtns = Array.from(document.querySelectorAll(".fa-plus-circle"));
 var minusBtns = Array.from(document.querySelectorAll(".fa-minus-circle"));
+var favs = Array.from(document.querySelectorAll(".fa-heart"));
+var deleteBtns = Array.from(document.querySelectorAll(".fa-trash-alt"));
+var cards = Array.from(document.querySelectorAll(".card"));
 
-// Favourtes
-for (let fav of favs) {
+// Favourites
+for (let fav of favs)
 	fav.addEventListener("click", function () {
 		if (fav.style.color == "black") {
 			fav.style.color = "red";
@@ -14,15 +15,6 @@ for (let fav of favs) {
 			fav.style.color = "black";
 		}
 	});
-}
-
-// Remove button
-for (let i in deletBtns) {
-	deletBtns[i].addEventListener("click", function () {
-		cards[i].remove();
-		total();
-	});
-}
 
 // Add button
 for (let plus of plusBtns) {
@@ -32,9 +24,13 @@ for (let plus of plusBtns) {
 	});
 }
 
-// Minus Button
+// Minus button
 for (let minus of minusBtns) {
 	minus.addEventListener("click", function () {
+		// minus.previousElementSibling.innerHTML > 0
+		// 	? minus.previousElementSibling.innerHTML--
+		// 	: null;
+		// total();
 		if (minus.previousElementSibling.innerHTML > 0) {
 			minus.previousElementSibling.innerHTML--;
 		} else {
@@ -44,7 +40,15 @@ for (let minus of minusBtns) {
 	});
 }
 
-// total price
+// delete button
+for (let i in deleteBtns) {
+	deleteBtns[i].addEventListener("click", function () {
+		cards[i].remove();
+		total();
+	});
+}
+
+// 	Total price
 function total() {
 	let qte = Array.from(document.querySelectorAll(".qute"));
 	let price = Array.from(document.querySelectorAll(".unitt-price"));
